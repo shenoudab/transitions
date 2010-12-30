@@ -26,7 +26,7 @@ module CouchrestModel
 
     included do
       include ::Transitions
-      before_validation :set_initial_state
+      before_validate :set_initial_state
       validates_presence_of :state
       validate :state_inclusion
     end
