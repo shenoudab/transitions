@@ -1,4 +1,4 @@
-# Copyright (c) 2009 Rick Olson
+# Copyright (c) 2011 Shenouda Bertel
 
 # Permission is hereby granted, free of charge, to any person
 # obtaining a copy of this software and associated documentation files
@@ -26,7 +26,7 @@ module CouchrestModel
 
     included do
       include ::Transitions
-      before_validate :set_initial_state
+      before_validation :set_initial_state
       validates_presence_of :state
       validate :state_inclusion
     end
@@ -47,10 +47,6 @@ module CouchrestModel
       instance_variable_set(ivar, state)
       self.state = state.to_s
       save!
-    #rescue ActiveRecord::RecordInvalid
-    #  self.state = prev_state.to_s
-    #  instance_variable_set(ivar, prev_state)
-    #  raise
     end
 
     def read_state(state_machine)
@@ -68,4 +64,3 @@ module CouchrestModel
     end
   end
 end
-

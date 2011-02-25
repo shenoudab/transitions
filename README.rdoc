@@ -4,7 +4,7 @@ transitions is a ruby state machine implementation based on Rick Olson’s
 ActiveModel::StateMachine. It was extracted from ActiveModel and turned
 into a gem when it got the axe in commit {db49c706b}[http://github.com/rails/rails/commit/db49c706b62e7ea2ab93f05399dbfddf5087ee0c].
 
-transitions is currently being maintained by {Jakub Kuźma}[http://github.com/qoobaa].
+transitions for couchdb is currently being maintained by {Shenouda Bertel}[http://github.com/shenoudab].
 
 == Quick Example
 
@@ -34,11 +34,11 @@ transitions is currently being maintained by {Jakub Kuźma}[http://github.com/qo
 
 This goes into your Gemfile:
 
- gem "transitions", :require => ["transitions", "active_record/transitions"]
+ gem "transitions", :require => ["transitions", "couchrest_model/transitions"]
 
-… and this into your AR model:
+… and this into your CouchrestModel model:
 
- include ActiveRecord::Transitions
+ include CouchrestModel::Transitions
 
 === A note about persistence
 The property used to persist the models’ state is named <tt>state</tt> (really!),
@@ -68,13 +68,6 @@ you: <tt>discontinue</tt> and <tt>discontinue!</tt>. Both events will call
 <tt>write_state_without_persistence</tt> on successful transition, but only the
 bang(!)-version will call <tt>write_state</tt>.
 
-== Documentation, Guides & Examples
-
-- {Online API Documentation}[http://rdoc.info/github/qoobaa/transitions/master/Transitions]
-- Krzysiek Heród (aka {Netizer}[http://github.com/netizer]) wrote a nice
-  {blog post}[http://dev.netizer.pl/transitions-state-machine-for-rails-3.html]
-  about using Transitions in ActiveRecord.
-
 == Copyright
 
-Copyright (c) 2010 Jakub Kuźma. See LICENSE for details.
+Copyright (c) 2011 mobiThought. See LICENSE for details.
